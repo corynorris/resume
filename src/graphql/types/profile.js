@@ -10,7 +10,7 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLID
+  GraphQLID,
 } from 'graphql';
 
 export default new GraphQLObjectType({

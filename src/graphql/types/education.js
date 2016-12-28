@@ -12,9 +12,11 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLID
+  GraphQLID,
 } from 'graphql';
+
 import GraphQLDate from 'graphql-date';
+import GraphQLLocationType from './location';
 
 export default new GraphQLObjectType({
   name: 'Education',
@@ -44,12 +46,7 @@ export default new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLDate),
     },
     location: {
-      city: {
-        type: new GraphQLNonNull(GraphQLString),
-      },
-      region: {
-        type: new GraphQLNonNull(GraphQLString),
-      },
+      type: GraphQLLocationType,
     },
   },
 });

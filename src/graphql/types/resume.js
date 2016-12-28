@@ -19,8 +19,10 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLID
+  GraphQLID,
 } from 'graphql';
+
+import GraphQLLocationType from './location';
 
 export default new GraphQLObjectType({
   name: 'Resume',
@@ -50,21 +52,7 @@ export default new GraphQLObjectType({
       type: new GraphQLNonNull(GraphQLString),
     },
     location: {
-      address: {
-        type: new GraphQLNonNull(GraphQLString),
-      },
-      postalCode: {
-        type: new GraphQLNonNull(GraphQLString),
-      },
-      city: {
-        type: new GraphQLNonNull(GraphQLString),
-      },
-      countryCode: {
-        type: new GraphQLNonNull(GraphQLString),
-      },
-      region: {
-        type: new GraphQLNonNull(GraphQLString),
-      },
+      type: GraphQLLocationType,
     },
   },
 });

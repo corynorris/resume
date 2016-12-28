@@ -16,7 +16,8 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLID
+  GraphQLID,
+  GraphQLList,
 } from 'graphql';
 import GraphQLDate from 'graphql-date';
 
@@ -39,13 +40,13 @@ export default new GraphQLObjectType({
       type: GraphQLString,
     },
     completionDate: {
-      type: GraphQLNonNull(GraphQLDate),
+      type: new GraphQLNonNull(GraphQLDate),
     },
     summary: {
       type: new GraphQLNonNull(GraphQLString),
     },
-    tags: [{
-      type: new GraphQLNonNull(GraphQLString),
-    }],
+    tags: {
+      type: new GraphQLList(new GraphQLNonNull(GraphQLString)),
+    },
   },
 });

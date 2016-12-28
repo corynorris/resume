@@ -16,9 +16,11 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLID
+  GraphQLID,
+  GraphQLList,
 } from 'graphql';
 import GraphQLDate from 'graphql-date';
+import GraphQLLocationType from './location';
 
 export default new GraphQLObjectType({
   name: 'Work',
@@ -44,16 +46,11 @@ export default new GraphQLObjectType({
     endDate: {
       type: new GraphQLNonNull(GraphQLDate),
     },
-    highlights: [{
-      type: new GraphQLNonNull(GraphQLString),
-    }],
+    highlights: {
+      type: new GraphQLList(new GraphQLNonNull(GraphQLString)),
+    },
     location: {
-      city: {
-        type: new GraphQLNonNull(GraphQLString),
-      },
-      region: {
-        type: new GraphQLNonNull(GraphQLString),
-      },
+      type: GraphQLLocationType,
     },
   },
 });

@@ -1,27 +1,24 @@
 import express from 'express';
-import graphqlHTTP from 'express-graphql';
 import mongoose from 'mongoose';
-
-import schema from './graphql';
+import bodyParser from 'body-parser';
+import routes from './routes';
 
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+
+// Environment Parameters
 app.set('port', (process.env.PORT || 3000));
 app.set('mongo_url', process.env.MONGO_URL || '');
-// GraphqQL server route
-app.use('/graphql', graphqlHTTP(req => ({
-  schema,
-  pretty: true,
-})));
+app.set('secret', process.env.SECRET || 'super-secret-password');
 
-
-// Connect mongo database
+// Connect to mongoose
 mongoose.connect(app.get('mongo_url'));
 
+app.use('/', routes);
 
 app.listen(app.get('port'), () => {
   console.log(`Node app is running at localhost: ${app.get('port')}`);
 });
-
-
-// mongodb://mongo-data:a631a9cb9659a252ff2eab13fcfafc8f@dokku-mongo-mongo-data:27017/mongo-data

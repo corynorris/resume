@@ -7,7 +7,7 @@ import queries from './queries';
 
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
-    name: 'Query',
+    name: 'Root',
     fields: queries,
   }),
 });

@@ -15,9 +15,6 @@ const educationSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  description: {
-    type: String,
-  },
   institution: {
     type: String,
     required: true,
@@ -37,16 +34,6 @@ const educationSchema = new mongoose.Schema({
   endDate: {
     type: Date,
     required: true,
-  },
-  location: {
-    city: {
-      type: String,
-      required: true,
-    },
-    region: {
-      type: String,
-      required: true,
-    },
   },
 });
 

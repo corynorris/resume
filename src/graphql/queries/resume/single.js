@@ -3,12 +3,12 @@ import {
   GraphQLNonNull,
 } from 'graphql';
 
-import resumeType from '../../types/resume';
+import ResumeType from '../../types/resume';
 import getProjection from '../../get-projection';
 import resumeModel from '../../../models/resume';
 
 export default {
-  type: resumeType,
+  type: ResumeType,
   args: {
     id: {
       name: 'id',

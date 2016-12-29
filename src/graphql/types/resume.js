@@ -36,7 +36,7 @@ export default new GraphQLObjectType({
     label: {
       type: GraphQLString,
     },
-    picture: {
+    pictureUrl: {
       type: new GraphQLNonNull(GraphQLString),
     },
     email: {

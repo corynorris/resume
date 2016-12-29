@@ -16,7 +16,6 @@ import {
 } from 'graphql';
 
 import GraphQLDate from 'graphql-date';
-import GraphQLLocationType from './location';
 
 export default new GraphQLObjectType({
   name: 'Education',
@@ -26,9 +25,6 @@ export default new GraphQLObjectType({
     },
     resumeId: {
       type: new GraphQLNonNull(GraphQLID),
-    },
-    description: {
-      type: GraphQLString,
     },
     institution: {
       type: new GraphQLNonNull(GraphQLString),
@@ -44,9 +40,6 @@ export default new GraphQLObjectType({
     },
     endDate: {
       type: new GraphQLNonNull(GraphQLDate),
-    },
-    location: {
-      type: GraphQLLocationType,
     },
   },
 });

@@ -10,16 +10,16 @@ export default (req, res) => {
     name,
   }, (findError, user) => {
     if (findError) {
-      res.json({ error: MongoErrorTransformer.transform(findError) });
+      res.status(403).json({ error: MongoErrorTransformer.transform(findError) });
     } else if (!user) {
-      res.json({ errors: ['Authentication failed. User not found.'] });
+      res.status(403).json({ errors: ['Authentication failed. User not found.'] });
     } else {
       bcrypt.compare(passwordAttempt, user.hash, (authErr) => {
-        if (authErr) return res.json({ error: 'Authentication failed. Wrong password.' });
+        if (authErr) return res.status(403).json({ error: 'Authentication failed. Wrong password.' });
         const token = jwt.sign(user, req.app.get('secret'), {
           expiresIn: 60 * 60 * 24,
         });
-        return res.json({
+        return res.status(200).json({
           message: 'Authentication succeeded.',
           token,
         });

@@ -25,7 +25,7 @@ const resumeSchema = new mongoose.Schema({
   label: {
     type: String,
   },
-  picture: {
+  pictureUrl: {
     type: String,
     required: true,
   },

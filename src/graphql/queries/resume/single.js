@@ -15,9 +15,8 @@ export default {
       type: new GraphQLNonNull(GraphQLID),
     },
   },
-  resolve(root, params, options) {
-    const projection = getProjection(options.fieldASTs[0]);
-
+  resolve(root, params, options, ast) {
+    const projection = getProjection(ast);
     return resumeModel
       .findById(params.id)
       .select(projection)

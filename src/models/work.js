@@ -37,7 +37,6 @@ const workSchema = new mongoose.Schema({
   },
   endDate: {
     type: Date,
-    required: true,
   },
   highlights: [{
     type: String,

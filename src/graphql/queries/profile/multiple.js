@@ -9,8 +9,8 @@ import profileModel from '../../../models/profile';
 export default {
   type: new GraphQLList(profileType),
   args: {},
-  resolve(root, params, options) {
-    const projection = getProjection(options.fieldASTs[0]);
+  resolve(root, params, options, ast) {
+    const projection = getProjection(ast);
 
     return profileModel
       .find()

@@ -15,6 +15,7 @@ app.set('mongo_url', process.env.MONGO_URL || '');
 app.set('secret', process.env.SECRET || 'super-secret-password');
 
 // Connect to mongoose
+mongoose.Promise = global.Promise;
 mongoose.connect(app.get('mongo_url'));
 
 app.use('/', express.static(path.join(__dirname, 'public')));

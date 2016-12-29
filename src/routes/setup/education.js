@@ -1,5 +1,4 @@
 import Education from '../../models/education';
-import MongoErrorTransformer from '../../transformers/mongoError';
 
 export default (id) => {
   const education = new Education({
@@ -11,8 +10,5 @@ export default (id) => {
     startDate: new Date('August 1, 2008'),
     endDate: new Date('April 30, 2014'),
   });
-  education.save((saveError) => {
-    if (saveError) return { error: MongoErrorTransformer.transform(saveError) };
-    return { message: 'success' };
-  });
+  return education.save();
 };

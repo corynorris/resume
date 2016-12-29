@@ -9,8 +9,8 @@ import workModel from '../../../models/work';
 export default {
   type: new GraphQLList(workType),
   args: {},
-  resolve(root, params, options) {
-    const projection = getProjection(options.fieldASTs[0]);
+  resolve(root, params, options, ast) {
+    const projection = getProjection(ast);
 
     return workModel
       .find()

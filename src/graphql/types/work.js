@@ -49,7 +49,7 @@ export default new GraphQLObjectType({
       description: 'August 1, 2004',
     },
     endDate: {
-      type: new GraphQLNonNull(GraphQLDate),
+      type: GraphQLDate,
       description: 'Jan 1, 2012',
     },
     highlights: {

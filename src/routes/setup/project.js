@@ -4,15 +4,12 @@ import MongoErrorTransformer from '../../transformers/mongoError';
 export default (id) => {
   const project = new Project({
     resumeId: id,
-    imageUrl: 'Honours Business Administration and Computer Science, Co-op Option.',
-    demoUrl: '',
-    sourceUrl: '',
-    completionDate: '',
-    summary: '',
-    tags: [],
+    imageUrl: 'test',
+    demoUrl: 'test',
+    sourceUrl: 'test',
+    completionDate: new Date('August 1, 2003'),
+    summary: 'test',
+    tags: ['react', 'graphql'],
   });
-  project.save((saveError) => {
-    if (saveError) return { error: MongoErrorTransformer.transform(saveError) };
-    return { message: 'success' };
-  });
+  return project.save();
 };

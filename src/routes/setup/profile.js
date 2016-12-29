@@ -2,7 +2,7 @@ import Profile from '../../models/profile';
 import MongoErrorTransformer from '../../transformers/mongoError';
 
 export default (id) => {
-  Profile.collection.insert([{
+  return Profile.insertMany([{
     resumeId: id,
     network: 'github',
     username: 'corynorris',
@@ -22,8 +22,5 @@ export default (id) => {
     network: 'bitbucket',
     username: 'corynorris',
     url: 'https://bitbucket.org/corynorris/',
-  }], (saveError) => {
-    if (saveError) return { error: MongoErrorTransformer.transform(saveError) };
-    return { message: 'success' };
-  });
+  }]);
 };

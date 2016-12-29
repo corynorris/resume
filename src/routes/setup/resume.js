@@ -1,25 +1,21 @@
 import Resume from '../../models/resume';
-import MongoErrorTransformer from '../../transformers/mongoError';
 
 export default () => {
   const resume = new Resume({
-    name: 'Honours Business Administration and Computer Science, Co-op Option.',
-    label: '',
-    pictureUrl: '',
-    email: '',
-    phone: '',
-    website: '',
-    summary: '',
+    name: 'Cory Norris',
+    label: 'Software Engineer',
+    pictureUrl: 'test',
+    email: 'test',
+    phone: 'test',
+    website: 'https://corynorris.me',
+    summary: 'test',
     location: {
-      address: '',
-      postalCode: '',
-      city: '',
-      countryCode: '',
-      region: '',
+      address: 'test',
+      postalCode: 'test',
+      city: 'Toronto',
+      countryCode: 'CA',
+      region: 'Ontario',
     },
   });
-  resume.save((saveError, savedResume) => {
-    if (saveError) return { error: MongoErrorTransformer.transform(saveError) };
-    return { message: 'success', id: savedResume.id };
-  });
+  return resume.save();
 };

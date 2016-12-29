@@ -9,8 +9,8 @@ import educationModel from '../../../models/education';
 export default {
   type: new GraphQLList(educationType),
   args: {},
-  resolve(root, params, options) {
-    const projection = getProjection(options.fieldASTs[0]);
+  resolve(root, params, options, ast) {
+    const projection = getProjection(ast);
 
     return educationModel
       .find()

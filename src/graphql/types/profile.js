@@ -15,6 +15,7 @@ import {
 
 export default new GraphQLObjectType({
   name: 'Profile',
+  description: 'other portfolios or accounts',
   fields: {
     _id: {
       type: new GraphQLNonNull(GraphQLID),
@@ -24,12 +25,15 @@ export default new GraphQLObjectType({
     },
     network: {
       type: new GraphQLNonNull(GraphQLString),
+      description: 'github',
     },
     username: {
       type: new GraphQLNonNull(GraphQLString),
+      description: 'johnsmith',
     },
     url: {
       type: new GraphQLNonNull(GraphQLString),
+      description: 'https://github.com/johnsmith',
     },
   },
 });

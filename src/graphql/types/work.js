@@ -24,6 +24,7 @@ import GraphQLLocationType from './location';
 
 export default new GraphQLObjectType({
   name: 'Work',
+  description: 'previous employment information',
   fields: {
     _id: {
       type: new GraphQLNonNull(GraphQLID),
@@ -33,21 +34,27 @@ export default new GraphQLObjectType({
     },
     company: {
       type: new GraphQLNonNull(GraphQLString),
+      description: 'Google',
     },
     position: {
       type: new GraphQLNonNull(GraphQLString),
+      description: 'Software Engineer',
     },
     website: {
       type: new GraphQLNonNull(GraphQLString),
+      description: 'https://www.google.com',
     },
     startDate: {
       type: new GraphQLNonNull(GraphQLDate),
+      description: 'August 1, 2004',
     },
     endDate: {
       type: new GraphQLNonNull(GraphQLDate),
+      description: 'Jan 1, 2012',
     },
     highlights: {
       type: new GraphQLList(new GraphQLNonNull(GraphQLString)),
+      description: 'outline of accomplishments during this term of employment',
     },
     location: {
       type: GraphQLLocationType,

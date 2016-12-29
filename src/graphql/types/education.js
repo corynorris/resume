@@ -19,6 +19,7 @@ import GraphQLDate from 'graphql-date';
 
 export default new GraphQLObjectType({
   name: 'Education',
+  description: 'information on an academic institution',
   fields: {
     _id: {
       type: new GraphQLNonNull(GraphQLID),
@@ -28,18 +29,23 @@ export default new GraphQLObjectType({
     },
     institution: {
       type: new GraphQLNonNull(GraphQLString),
+      description: 'University of Toronto',
     },
     area: {
       type: new GraphQLNonNull(GraphQLString),
+      description: 'Computer Science',
     },
     studyType: {
       type: new GraphQLNonNull(GraphQLString),
+      description: 'Bachelor',
     },
     startDate: {
       type: new GraphQLNonNull(GraphQLDate),
+      description: 'August 1, 2000',
     },
     endDate: {
       type: new GraphQLNonNull(GraphQLDate),
+      description: 'April 30, 2004',
     },
   },
 });

@@ -31,6 +31,10 @@ export default new GraphQLObjectType({
     resumeId: {
       type: new GraphQLNonNull(GraphQLID),
     },
+    title: {
+      type: new GraphQLNonNull(GraphQLString),
+      description: 'name of the project',
+    },
     imageUrl: {
       type: new GraphQLNonNull(GraphQLString),
       description: 'url to an image of the project',

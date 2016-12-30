@@ -4,7 +4,7 @@ export default () => {
   const resume = new Resume({
     name: 'Cory Norris',
     label: 'Software Engineer',
-    pictureUrl: 'https://images.corynorris.me/profile.jpg',
+    pictureUrl: 'https://images.corynorris.me/profile/formal.jpg',
     email: 'corynorris@gmail.com',
     phone: '647-573-8532',
     website: 'https://corynorris.me',

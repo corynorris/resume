@@ -41,7 +41,7 @@ export default new GraphQLObjectType({
       description: 'Software Engineer',
     },
     website: {
-      type: new GraphQLNonNull(GraphQLString),
+      type: GraphQLString,
       description: 'https://www.google.com',
     },
     startDate: {

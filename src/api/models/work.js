@@ -29,7 +29,6 @@ const workSchema = new mongoose.Schema({
   },
   website: {
     type: String,
-    required: true,
   },
   startDate: {
     type: Date,

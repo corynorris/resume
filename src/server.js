@@ -19,7 +19,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(app.get('mongo_url'));
 
 // Routes
-app.use('/api', apiRoutes);
+app.use('/', apiRoutes);
 // app.use('/', clientRoutes);
 
 app.listen(app.get('port'), () => {

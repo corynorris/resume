@@ -44,7 +44,7 @@ export default (id) => {
     demoUrl: '',
     sourceUrl: '',
     completionDate: new Date('March 1, 2014'),
-    summary: 'Height map and texturing demonstration with modern OpenGL',
+    summary: 'Height map and texturing demonstration with modern OpenGL.',
     tags: ['c++', 'augmented-reality', 'computer-vision', 'opengl'],
   }, {
     resumeId: id,
@@ -116,7 +116,25 @@ export default (id) => {
     demoUrl: 'https://recipebox.corynorris.me',
     sourceUrl: 'https://github.com/corynorris/recipebox',
     completionDate: new Date('December 1, 2016'),
-    summary: 'Store, rate and edit recipes',
+    summary: 'Store, rate and edit recipes.',
     tags: ['css', 'javscript', 'local-storage', 'single-page-app', 'react-router', 'react'],
+  }, {
+    resumeId: id,
+    title: 'Timed Memorization',
+    imageUrl: 'https://images.corynorris.me/projects/memory-app.jpg',
+    demoUrl: 'http://corynorris.github.io/angularjs-memory-app/app',
+    sourceUrl: 'https://github.com/corynorris/angularjs-memory-app',
+    completionDate: new Date('February 14, 2016'),
+    summary: 'Add words, and get prompted to remember them at intervals based on how well you remember them.',
+    tags: ['css', 'javscript', 'local-storage', 'single-page-app', 'angular-1.5'],
+  }, {
+    resumeId: id,
+    title: 'Parker Mobile',
+    imageUrl: 'https://images.corynorris.me/projects/parker-mobile-2.jpg',
+    demoUrl: '',
+    sourceUrl: 'https://github.com/corynorris/traffic-tickets-ionic-2',
+    completionDate: new Date('May 1, 2016'),
+    summary: 'An Ionic 2 app that plots traffic ticket density accross Toronto.',
+    tags: ['css', 'javscript', 'map', 'ionic-2', 'angular-2'],
   }]);
 };

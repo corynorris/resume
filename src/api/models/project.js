@@ -29,7 +29,6 @@ const projectSchema = new mongoose.Schema({
   },
   demoUrl: {
     type: String,
-    required: true,
   },
   sourceUrl: {
     type: String,

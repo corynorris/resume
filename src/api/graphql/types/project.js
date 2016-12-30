@@ -40,7 +40,7 @@ export default new GraphQLObjectType({
       description: 'url to an image of the project',
     },
     demoUrl: {
-      type: new GraphQLNonNull(GraphQLString),
+      type: GraphQLString,
       description: 'url to a working demo',
     },
     sourceUrl: {

@@ -19,6 +19,10 @@ const projectSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
+  title: {
+    type: String,
+    required: true,
+  },
   imageUrl: {
     type: String,
     required: true,

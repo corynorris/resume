@@ -12,7 +12,6 @@ module.exports = {
       test: /\.jsx?$/,
       loader: 'babel-loader',
       include: path.join(__dirname, 'src', 'client'),
-      exclude: path.join(__dirname, 'node_modules'),
       query: {
         cacheDirectory: 'babel_cache',
         presets: ['react', 'es2015'],

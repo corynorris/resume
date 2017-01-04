@@ -1,8 +1,7 @@
 import Profile from '../../models/profile';
-import MongoErrorTransformer from '../../transformers/mongoError';
 
 export default (id) => {
-  return Profile.insertMany([{
+  const data = [{
     resumeId: id,
     network: 'github',
     username: 'corynorris',
@@ -22,5 +21,16 @@ export default (id) => {
     network: 'bitbucket',
     username: 'corynorris',
     url: 'https://bitbucket.org/corynorris/',
-  }]);
+  }];
+
+  return Promise.all(data.map(profileData => new Promise((resolve, reject) => {
+    Profile.update(
+      profileData,
+      { $setOnInsert: profileData },
+      { upsert: true },
+      (err, profile) => {
+        if (err) reject(err);
+        resolve(profile);
+      });
+  })));
 };

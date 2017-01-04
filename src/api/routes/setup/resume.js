@@ -1,7 +1,7 @@
 import Resume from '../../models/resume';
 
 export default () => {
-  const resume = new Resume({
+  const data = {
     name: 'Cory Norris',
     label: 'Software Engineer',
     pictureUrl: 'https://images.corynorris.me/profile/formal.jpg',
@@ -16,6 +16,10 @@ export default () => {
       countryCode: 'CA',
       region: 'Ontario',
     },
+  };
+
+  return Resume.findOne(data).exec().then((result) => {
+    if (result) return result;
+    return new Resume(data).save();
   });
-  return resume.save();
 };

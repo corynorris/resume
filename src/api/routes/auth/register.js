@@ -11,10 +11,10 @@ export default (req, res) => {
     || name.length < 4) {
     return res.send({ error: 'Name and Password are required, and must be atleast 4 characters long' });
   }
-  bcrypt.hash(password, 16, (authError, hash) => {
+  return bcrypt.hash(password, 16, (authError, hash) => {
     if (authError) return res.json({ error: authError });
     const user = new User({ name, hash });
-    user.save((saveError) => {
+    return user.save((saveError) => {
       if (saveError) return res.json({ error: MongoErrorTransformer.transform(saveError) });
       return res.json({ message: 'success' });
     });

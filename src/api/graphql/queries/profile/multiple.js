@@ -13,7 +13,7 @@ export default {
     const projection = getProjection(ast);
 
     return profileModel
-      .find()
+      .find({ resumeId: root.id })
       .select(projection)
       .exec();
   },

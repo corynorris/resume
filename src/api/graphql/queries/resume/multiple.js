@@ -8,7 +8,7 @@ import resumeModel from '../../../models/resume';
 
 export default {
   type: new GraphQLList(ResumeType),
-  args: {},
+  description: 'Gets all resumes in the database',
   resolve(root, params, options, ast) {
     const projection = getProjection(ast);
     return resumeModel

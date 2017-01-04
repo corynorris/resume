@@ -22,22 +22,27 @@ import {
   GraphQLID,
 } from 'graphql';
 
+import educationHistory from '../queries/education/multiple';
+import profiles from '../queries/profile/multiple';
+import projects from '../queries/project/multiple';
+import workHistory from '../queries/work/multiple';
+
 import GraphQLLocationType from './location';
 
 export default new GraphQLObjectType({
   name: 'Resume',
   description: 'general information about a candidate',
-  fields: {
+  fields: () => ({
     _id: {
       type: new GraphQLNonNull(GraphQLID),
     },
     name: {
       type: new GraphQLNonNull(GraphQLString),
-      description: 'John Smith',
+      description: 'eg: John Smith',
     },
     label: {
       type: GraphQLString,
-      description: 'Software Engineer',
+      description: 'eg: Software Engineer',
     },
     pictureUrl: {
       type: new GraphQLNonNull(GraphQLString),
@@ -45,15 +50,15 @@ export default new GraphQLObjectType({
     },
     email: {
       type: new GraphQLNonNull(GraphQLString),
-      description: 'johnsmith@gmail.com',
+      description: 'eg: johnsmith@gmail.com',
     },
     phone: {
       type: GraphQLString,
-      description: '1-416-123-4567',
+      description: 'eg: 1-416-123-4567',
     },
     website: {
       type: GraphQLString,
-      description: 'https://www.johnsmith.com',
+      description: 'eg: https://www.johnsmith.com',
     },
     summary: {
       type: new GraphQLNonNull(GraphQLString),
@@ -62,5 +67,9 @@ export default new GraphQLObjectType({
     location: {
       type: GraphQLLocationType,
     },
-  },
+    projects,
+    profiles,
+    workHistory,
+    educationHistory,
+  }),
 });

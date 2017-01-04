@@ -1,7 +1,7 @@
 import education from './single';
-import educations from './multiple';
+import educationHistory from './multiple';
 
 export default {
   education,
-  educations,
+  educationHistory,
 };

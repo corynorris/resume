@@ -21,6 +21,7 @@ const resumeSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
+    unique: true,
   },
   label: {
     type: String,

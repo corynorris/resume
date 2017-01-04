@@ -1,7 +1,7 @@
 import Work from '../../models/work';
 
 export default (id) => {
-  return Work.insertMany([{
+  const data = [{
     resumeId: id,
     company: 'Index Exchange',
     position: 'Software Engineer',
@@ -133,5 +133,16 @@ export default (id) => {
       city: 'Guelph',
       region: 'Ontario',
     },
-  }]);
+  }];
+
+  return Promise.all(data.map(workData => new Promise((resolve, reject) => {
+    Work.update(
+      workData,
+      { $setOnInsert: workData },
+      { upsert: true },
+      (err, work) => {
+        if (err) reject(err);
+        resolve(work);
+      });
+  })));
 };

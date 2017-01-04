@@ -1,7 +1,7 @@
 import Project from '../../models/project';
 
 export default (id) => {
-  return Project.insertMany([{
+  const data = [{
     resumeId: id,
     title: 'Ant Simulator',
     imageUrl: 'https://images.corynorris.me/projects/ant-simulator.jpg',
@@ -136,5 +136,16 @@ export default (id) => {
     completionDate: new Date('May 1, 2016'),
     summary: 'An Ionic 2 app that plots traffic ticket density accross Toronto.',
     tags: ['css', 'javscript', 'map', 'ionic-2', 'angular-2'],
-  }]);
+  }];
+
+  return Promise.all(data.map(projectData => new Promise((resolve, reject) => {
+    Project.update(
+      projectData,
+      { $setOnInsert: projectData },
+      { upsert: true },
+      (err, project) => {
+        if (err) reject(err);
+        resolve(project);
+      });
+  })));
 };

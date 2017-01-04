@@ -10,30 +10,23 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLID,
 } from 'graphql';
 
 export default new GraphQLObjectType({
   name: 'Profile',
   description: 'other portfolios or accounts',
-  fields: {
-    _id: {
-      type: new GraphQLNonNull(GraphQLID),
-    },
-    resumeId: {
-      type: new GraphQLNonNull(GraphQLID),
-    },
+  fields: () => ({
     network: {
       type: new GraphQLNonNull(GraphQLString),
-      description: 'github',
+      description: 'eg: github',
     },
     username: {
       type: new GraphQLNonNull(GraphQLString),
-      description: 'johnsmith',
+      description: 'eg: johnsmith',
     },
     url: {
       type: new GraphQLNonNull(GraphQLString),
-      description: 'https://github.com/johnsmith',
+      description: 'eg: https://github.com/johnsmith',
     },
-  },
+  }),
 });

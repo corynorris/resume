@@ -5,7 +5,6 @@ import education from './education';
 import profile from './profile';
 import work from './work';
 import project from './project';
-import MongoErrorTransfomer from '../../transformers/mongoError';
 
 const auth = express.Router();
 

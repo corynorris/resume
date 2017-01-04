@@ -3,8 +3,8 @@ import {
   GraphQLNonNull,
 } from 'graphql';
 
-import educationType from '../../types/education';
 import getProjection from '../../get-projection';
+import educationType from '../../types/education';
 import educationModel from '../../../models/education';
 
 export default {

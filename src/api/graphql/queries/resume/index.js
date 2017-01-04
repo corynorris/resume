@@ -1,7 +1,7 @@
 import resume from './single';
-import resumes from './multiple';
+import allResumes from './multiple';
 
 export default {
   resume,
-  resumes,
+  allResumes,
 };

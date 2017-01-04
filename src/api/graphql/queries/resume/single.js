@@ -9,6 +9,7 @@ import resumeModel from '../../../models/resume';
 
 export default {
   type: ResumeType,
+  description: 'Gets a single database by id from the database',
   args: {
     id: {
       name: 'id',

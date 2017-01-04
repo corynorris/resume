@@ -1,7 +1,7 @@
 import work from './single';
-import works from './multiple';
+import workHistory from './multiple';
 
 export default {
   work,
-  works,
+  workHistory,
 };

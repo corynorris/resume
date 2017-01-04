@@ -16,20 +16,17 @@ import {
   GraphQLObjectType,
   GraphQLNonNull,
   GraphQLString,
-  GraphQLID,
   GraphQLList,
 } from 'graphql';
 import GraphQLDate from 'graphql-date';
+import ResumeType from './resume';
 
 export default new GraphQLObjectType({
   name: 'Project',
   description: 'project information and demos',
-  fields: {
-    _id: {
-      type: new GraphQLNonNull(GraphQLID),
-    },
-    resumeId: {
-      type: new GraphQLNonNull(GraphQLID),
+  fields: () => ({
+    resume: {
+      type: ResumeType,
     },
     title: {
       type: new GraphQLNonNull(GraphQLString),
@@ -49,7 +46,7 @@ export default new GraphQLObjectType({
     },
     completionDate: {
       type: new GraphQLNonNull(GraphQLDate),
-      description: 'September 15, 2007',
+      description: 'eg: September 15, 2007',
     },
     summary: {
       type: new GraphQLNonNull(GraphQLString),
@@ -59,5 +56,5 @@ export default new GraphQLObjectType({
       type: new GraphQLList(new GraphQLNonNull(GraphQLString)),
       description: 'technologies used in the project',
     },
-  },
+  }),
 });

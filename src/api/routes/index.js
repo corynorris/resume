@@ -1,13 +1,15 @@
 import express from 'express';
-import graphql from './graphql';
-import setup from './setup';
 import auth from './auth';
+import setup from './setup';
+import graphql from './graphql/graphql.js';
 
-const routes = express.Router();
+const router = express.Router();
 
-routes.use(setup);
-routes.use(graphql);
-routes.use('/auth', auth)
+router.use('/setup',setup); // protected
+router.use('/graphql',graphql);
+router.use('/auth',auth)
 
-export default routes;
+
+
+export default router;
 

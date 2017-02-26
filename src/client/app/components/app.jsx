@@ -7,7 +7,6 @@ injectTapEventPlugin();
 
 class App extends Component {
   render() {
-    console.log(this.props.children);
     return (
       <MuiThemeProvider>
         <div className="page-wrapper">

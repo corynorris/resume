@@ -1,10 +1,10 @@
 import express from 'express';
-import authenticate from './authenticate';
+import login from './login';
 import register from './register';
 
-const auth = express.Router();
+const router = express.Router();
 
-auth.post('/register', register);
-auth.post('/authenticate', authenticate);
+router.post('/register', register);
+router.post('/login', login);
 
-export default auth;
+export default router;

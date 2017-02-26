@@ -8,6 +8,8 @@ class Dashboard extends Component {
         Hello World
          <ul role="nav">
           <li><Link to="/login">Login</Link></li>
+          <li><Link to="/edit">Resume</Link></li>
+          <li><Link to="/register">Register</Link></li>
           <li><Link to="/logout">Logout</Link></li>
         </ul>
       </div>

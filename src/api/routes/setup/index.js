@@ -6,9 +6,9 @@ import profile from './profile';
 import work from './work';
 import project from './project';
 
-const auth = express.Router();
+const router = express.Router();
 
-auth.get('/setup', (req, res) => {
+router.use((req, res) => {
   resume().then((savedResume) => {
     const id = savedResume.id;
     Promise.all([
@@ -24,4 +24,4 @@ auth.get('/setup', (req, res) => {
   });
 });
 
-export default auth;
+export default router;

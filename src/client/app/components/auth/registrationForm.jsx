@@ -5,7 +5,7 @@ import isEmail from 'validator/lib/isEmail';
 import isLength from 'validator/lib/isLength';
 import AuthService from '../../service/AuthService';
 
-class LoginForm extends Component {
+class RegistrationForm extends Component {
 
   constructor(props) {
     super(props);
@@ -16,7 +16,7 @@ class LoginForm extends Component {
         email: '',
         password: '',
       },
-      loginFailed: '',
+      registrationForm: '',
       disabled: false,
     }
     this.handleEmailChange = this.handleEmailChange.bind(this);
@@ -66,24 +66,23 @@ class LoginForm extends Component {
     event.preventDefault();
     if (!this.state.isValid) return;
     const { email, password } = this.state;
-
     this.setState({ disabled: true })
-    AuthService.login(
+    AuthService.register(
       email,
       password
     ).then(success => {
       if (!success) {
-        this.setState({ loginFailed: 'Invalid email or password.' })
+        this.setState({ registrationForm: 'Invalid email or password.' })
       }
       this.setState({ disabled: false })
     }).catch(exception => {
-      this.setState({ loginFailed: 'An issue occured, please try again.' })
+      this.setState({ registrationForm: 'An issue occured, please try again.' })
       this.setState({ disabled: false })
     })
   }
 
   renderLoginError() {
-    if (this.state.loginFailed.length > 0) {
+    if (this.state.registrationForm.length > 0) {
       return (
         <div style={{ padding: '15px' }}>
           <p style={{ fontSize: '1.5rem', color: 'red', fontStyle: 'italic' }}>{this.state.loginFailed}</p>
@@ -95,7 +94,7 @@ class LoginForm extends Component {
   render() {
     return (
       <form>
-        <h2 style={{ fontFamily: 'Roboto' }}>Login</h2>
+        <h2>Register</h2>
         <TextField
           value={this.state.email}
           onChange={this.handleEmailChange}
@@ -127,4 +126,4 @@ class LoginForm extends Component {
 };
 
 
-export default LoginForm;
+export default RegistrationForm;
